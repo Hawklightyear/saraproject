@@ -104,8 +104,35 @@
                     resolve();
                 });
 
-                // Attach a real-time listener to the public knowledge collection
+                // Check and add 10 sample articles if the knowledge base is empty
                 const knowledgeCollectionRef = collection(db, `/artifacts/${appId}/public/data/knowledge`);
+                const existingDocs = await getDocs(knowledgeCollectionRef);
+                if (existingDocs.empty) {
+                    const sampleArticles = [
+                        { title: "การรวบรวม Requirement จากผู้มีส่วนได้ส่วนเสีย", content: "การทำความเข้าใจความต้องการของลูกค้าและผู้ใช้งานจริงเป็นหัวใจสำคัญของโครงการ โดยใช้เทคนิคต่างๆ เช่น การสัมภาษณ์, Workshop และการสร้างแบบสอบถาม" },
+                        { title: "การเขียน User Story ที่ดี", content: "User Story ควรเขียนในรูปแบบ 'As a [user], I want [goal], so that [reason]' เพื่อให้ทีมพัฒนามีความเข้าใจตรงกัน" },
+                        { title: "การสร้าง Business Process Model (BPMN)", content: "BPMN ช่วยให้เห็นภาพรวมของกระบวนการทำงานทั้งหมด ทั้งกิจกรรม ผู้รับผิดชอบ และเส้นทางการตัดสินใจ" },
+                        { title: "SWOT Analysis คืออะไร?", content: "การวิเคราะห์ Strengths, Weaknesses, Opportunities, และ Threats เพื่อประเมินสถานการณ์และวางแผนกลยุทธ์ทางธุรกิจ" },
+                        { title: "การทำ Feasibility Study", content: "ศึกษาความเป็นไปได้ของโครงการในด้านเทคนิค, เศรษฐกิจ, และการปฏิบัติงาน ก่อนการลงทุนจริง" },
+                        { title: "เทคนิคการสื่อสารสำหรับ BA", content: "BA ที่ดีต้องเป็นคนกลางในการสื่อสารระหว่างฝ่ายธุรกิจและฝ่ายเทคนิค เพื่อลดความเข้าใจผิดและสร้างความร่วมมือ" },
+                        { title: "Agile vs. Waterfall", content: "Agile เน้นการทำงานแบบวนซ้ำและยืดหยุ่น ส่วน Waterfall เน้นการวางแผนที่สมบูรณ์แบบตั้งแต่ต้น" },
+                        { title: "การทำ Root Cause Analysis", content: "การหาสาเหตุที่แท้จริงของปัญหา เพื่อแก้ไขให้ถูกจุดและป้องกันไม่ให้เกิดขึ้นซ้ำอีก" },
+                        { title: "การใช้ Prototyping ในโครงการ", content: "การสร้างแบบจำลอง (Prototype) ช่วยให้ผู้ใช้งานเห็นภาพและสามารถให้ Feedback ได้ตั้งแต่เนิ่นๆ" },
+                        { title: "Key Performance Indicators (KPIs)", content: "ตัวชี้วัดที่ใช้ประเมินความสำเร็จของเป้าหมายทางธุรกิจ ซึ่งช่วยให้สามารถติดตามและวัดผลการทำงานได้อย่างเป็นรูปธรรม" },
+                    ];
+
+                    const addPromises = sampleArticles.map(article =>
+                        addDoc(knowledgeCollectionRef, {
+                            ...article,
+                            createdAt: new Date(),
+                            authorId: "SARA-Admin"
+                        })
+                    );
+                    await Promise.all(addPromises);
+                    console.log("Added 10 initial sample articles.");
+                }
+
+                // Attach a real-time listener to the public knowledge collection
                 const knowledgeQuery = query(knowledgeCollectionRef);
                 onSnapshot(knowledgeQuery, (querySnapshot) => {
                     const articles = [];
