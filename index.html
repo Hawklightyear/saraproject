@@ -10,14 +10,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap" rel="stylesheet">
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-        import { getAuth, signInWithCustomToken, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
         import { getFirestore, collection, addDoc, onSnapshot, query, deleteDoc, doc, updateDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
         import { setLogLevel } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-        // Global variables for Firebase
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : '';
+        // Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyA0F2bSs0n6vpOmG9jglL3yzyQy8tQOlx0",
+          authDomain: "sara-c0e26.firebaseapp.com",
+          projectId: "sara-c0e26",
+          storageBucket: "sara-c0e26.firebasestorage.app",
+          messagingSenderId: "899683827852",
+          appId: "1:899683827852:web:22f8dd2fcc93937d99fba9"
+        };
+        const appId = firebaseConfig.projectId;
+
         let db, auth;
         let userId = 'loading...';
         
@@ -73,9 +80,9 @@
 
         window.onload = async () => {
             try {
-                if (Object.keys(firebaseConfig).length === 0) {
-                    throw new Error("Firebase config is empty. The app cannot run without it.");
-                }
+                // Log Firebase config to console for debugging
+                console.log('Firebase Config:', firebaseConfig);
+                
                 const app = initializeApp(firebaseConfig);
                 auth = getAuth(app);
                 db = getFirestore(app);
@@ -89,11 +96,8 @@
                         } else {
                             console.log('No user signed in. Signing in anonymously...');
                             try {
-                                if (initialAuthToken) {
-                                    await signInWithCustomToken(auth, initialAuthToken);
-                                } else {
-                                    await signInAnonymously(auth);
-                                }
+                                // For standalone hosting, we'll sign in anonymously as there's no custom token.
+                                await signInAnonymously(auth);
                                 userId = auth.currentUser.uid;
                             } catch (error) {
                                 console.error("Error signing in:", error);
