@@ -26,18 +26,18 @@
             initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
             appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
         } else {
+            // **Important:**
             // Fallback configuration for running on other platforms like GitHub Pages.
-            // Replace these placeholder values with your own Firebase project credentials.
-            // You can find these values in your Firebase project settings.
+            // These values have been replaced with your provided credentials.
             firebaseConfig = {
-                apiKey: "YOUR_API_KEY",
-                authDomain: "YOUR_AUTH_DOMAIN",
-                projectId: "YOUR_PROJECT_ID",
-                storageBucket: "YOUR_STORAGE_BUCKET",
-                messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-                appId: "YOUR_APP_ID"
+                apiKey: "AIzaSyA0F2bSs0n6vpOmG9jglL3yzyQy8tQOlx0",
+                authDomain: "sara-c0e26.firebaseapp.com",
+                projectId: "sara-c0e26",
+                storageBucket: "sara-c0e26.firebasestorage.app",
+                messagingSenderId: "899683827852",
+                appId: "1:899683827852:web:22f8dd2fcc93937d99fba9"
             };
-            appId = firebaseConfig.projectId; // Or a custom ID
+            appId = firebaseConfig.projectId; 
         }
 
         let db, auth;
