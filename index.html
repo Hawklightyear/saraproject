@@ -3,30 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SARA: All-in-One</title>
+    <title>SARA : Smart Agent for Reliable Answer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap" rel="stylesheet">
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-        import { getFirestore, collection, addDoc, onSnapshot, query, deleteDoc, doc, updateDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getFirestore, collection, addDoc, onSnapshot, query, where, deleteDoc, doc, updateDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
         import { setLogLevel } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
         // Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyA0F2bSs0n6vpOmG9jglL3yzyQy8tQOlx0",
-          authDomain: "sara-c0e26.firebaseapp.com",
-          projectId: "sara-c0e26",
-          storageBucket: "sara-c0e26.firebasestorage.app",
-          messagingSenderId: "899683827852",
-          appId: "1:899683827852:web:22f8dd2fcc93937d99fba9"
-        };
-        const appId = firebaseConfig.projectId;
+        const firebaseConfig = JSON.parse(__firebase_config);
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
         let db, auth;
-        let userId = 'loading...';
+        let userId = null;
         
         // UI elements
         const smartAgentSection = document.getElementById('smart-agent-section');
@@ -63,21 +57,6 @@
             }
         };
 
-        // Function to add initial knowledge if the database is empty
-        const addInitialKnowledge = async () => {
-            try {
-                const docRef = await addDoc(collection(db, `/artifacts/${appId}/public/data/knowledge`), {
-                    title: "อนุมัติงบประมาณต้องไปที่ไหน",
-                    content: "ถ้าหากไม่เกิน 300,000 บาทสามารถจบที่ infra meeting ได้เลยค่ะ แต่ถ้าหากว่าเกินกว่านี้ต้องขึ้นไปที่ techno committee และถ้าหากเกิน 5,000,000 บาทต้องติดต่อทาง Planning and Budgetting เพื่อปรึกษาการทำ Feasability ค่ะ",
-                    createdAt: new Date(),
-                    authorId: userId
-                });
-                console.log("Initial knowledge added with ID: ", docRef.id);
-            } catch (e) {
-                console.error("Error adding initial knowledge: ", e);
-            }
-        };
-
         window.onload = async () => {
             try {
                 // Log Firebase config to console for debugging
@@ -88,36 +67,24 @@
                 db = getFirestore(app);
                 setLogLevel('debug');
 
-                await new Promise(resolve => {
-                    const unsubscribe = auth.onAuthStateChanged(async (user) => {
-                        if (user) {
-                            console.log('User is signed in:', user.uid);
-                            userId = user.uid;
-                        } else {
-                            console.log('No user signed in. Signing in anonymously...');
-                            try {
-                                // For standalone hosting, we'll sign in anonymously as there's no custom token.
-                                await signInAnonymously(auth);
-                                userId = auth.currentUser.uid;
-                            } catch (error) {
-                                console.error("Error signing in:", error);
-                                showMessage(`เกิดข้อผิดพลาดในการลงชื่อเข้าใช้: ${error.message}`);
-                            }
+                await new Promise(async (resolve) => {
+                    if (initialAuthToken) {
+                        try {
+                            await signInWithCustomToken(auth, initialAuthToken);
+                        } catch (error) {
+                            console.error("Error signing in with custom token:", error);
+                            await signInAnonymously(auth);
                         }
-                        userIdDisplay.innerText = `User ID: ${userId}`;
-                        unsubscribe();
-                        resolve();
-                    });
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+                    userId = auth.currentUser.uid;
+                    userIdDisplay.innerText = `User ID: ${userId}`;
+                    resolve();
                 });
 
-                // Check and add initial knowledge if the collection is empty
+                // Attach a real-time listener to the public knowledge collection
                 const knowledgeCollectionRef = collection(db, `/artifacts/${appId}/public/data/knowledge`);
-                const querySnapshot = await getDocs(knowledgeCollectionRef);
-                if (querySnapshot.empty) {
-                    await addInitialKnowledge();
-                }
-
-                // Attach a real-time listener to the knowledge collection for both sections
                 const knowledgeQuery = query(knowledgeCollectionRef);
                 onSnapshot(knowledgeQuery, (querySnapshot) => {
                     const articles = [];
@@ -125,6 +92,9 @@
                         articles.push({ id: doc.id, ...doc.data() });
                     });
                     renderKnowledgeList(articles);
+                }, (error) => {
+                    console.error("Error listening for knowledge updates: ", error);
+                    showMessage(`เกิดข้อผิดพลาดในการดึงข้อมูล: ${error.message}`);
                 });
 
                 showSection('smart-agent');
@@ -147,6 +117,7 @@
             }
 
             try {
+                // Now saving to a public collection
                 const docRef = await addDoc(collection(db, `/artifacts/${appId}/public/data/knowledge`), {
                     title: title,
                     content: content,
@@ -173,6 +144,10 @@
 
         const renderKnowledgeList = (articles) => {
             knowledgeList.innerHTML = '';
+            if (articles.length === 0) {
+                knowledgeList.innerHTML = '<p class="text-gray-500 text-center">ยังไม่มีองค์ความรู้ในระบบ</p>';
+                return;
+            }
             articles.forEach(article => {
                 const li = document.createElement('li');
                 li.className = 'flex items-center justify-between bg-white p-4 rounded-lg shadow-sm border border-gray-200 mb-2';
@@ -195,21 +170,22 @@
         };
 
         // --- Smart Agent Functions ---
-        const searchKnowledge = async (query) => {
+        const searchKnowledge = async (queryText) => {
             searchResults.innerHTML = '';
-            if (query.length < 3) {
+            if (queryText.length < 3) {
                 searchResults.innerHTML = '<p class="text-gray-500">กรุณาพิมพ์อย่างน้อย 3 ตัวอักษรเพื่อค้นหา</p>';
                 return;
             }
             
             try {
-                const q = collection(db, `/artifacts/${appId}/public/data/knowledge`);
-                const querySnapshot = await getDocs(q);
+                // Now searching the public knowledge collection
+                const knowledgeCollectionRef = collection(db, `/artifacts/${appId}/public/data/knowledge`);
+                const querySnapshot = await getDocs(knowledgeCollectionRef);
                 
                 const results = [];
                 querySnapshot.forEach((doc) => {
                     const data = doc.data();
-                    if (data.title.toLowerCase().includes(query.toLowerCase()) || data.content.toLowerCase().includes(query.toLowerCase())) {
+                    if (data.title.toLowerCase().includes(queryText.toLowerCase()) || data.content.toLowerCase().includes(queryText.toLowerCase())) {
                         results.push(data);
                     }
                 });
@@ -251,16 +227,36 @@
     <style>
         body {
             font-family: 'Kanit', sans-serif;
-            background-color: #f0f4f8;
+            background: linear-gradient(to right, #6EE7B7, #3B82F6);
         }
         .container {
             max-width: 1000px;
         }
         .content-section {
-            background-color: #ffffff;
-            border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease;
+        }
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 35px 70px -12px rgba(0, 0, 0, 0.3);
+        }
+        input[type="text"], textarea {
+            border: 1px solid #E5E7EB;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        input[type="text"]:focus, textarea:focus {
+            border-color: #6366F1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+        }
+        .bg-gradient-button {
+            background-image: linear-gradient(to right, #6EE7B7, #3B82F6);
+        }
+        .hover\:bg-gradient-button:hover {
+            background-image: linear-gradient(to right, #3B82F6, #6EE7B7);
         }
         #message-box {
             position: fixed;
@@ -276,20 +272,37 @@
             text-align: center;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .logo-container {
+            margin-bottom: 1rem;
+        }
+        .logo {
+            width: 200px; 
+            height: auto;
+        }
     </style>
 </head>
-<body class="p-8 flex flex-col min-h-screen">
+<body class="p-8 flex flex-col min-h-screen items-center justify-center">
     <div class="container mx-auto flex-grow flex items-center justify-center">
         <main class="content-section w-full lg:w-3/4">
             <header class="text-center mb-8">
-                <h1 class="text-4xl font-bold text-blue-800">SARA: All-in-One</h1>
-                <p id="user-id-display" class="text-sm text-gray-500 mt-2">User ID: loading...</p>
-                <div class="mt-4 flex justify-center space-x-4">
-                    <button onclick="showSection('smart-agent')" class="px-6 py-3 text-white font-semibold bg-indigo-500 rounded-full hover:bg-indigo-600 transition-colors">
-                        ไปที่ Smart Agent
+                <div class="logo-container">
+                    <img src="https://online.tisco.co.th/ej/images/tiscologo.png" alt="TISCO Logo" class="logo">
+                </div>
+                <h1 class="text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center">
+                    SARA : Smart Agent for Reliable Answer
+                </h1>
+                <p id="user-id-display" class="text-sm text-gray-600 mt-2">User ID: loading...</p>
+                <div class="mt-8 flex justify-center space-x-4">
+                    <button onclick="showSection('smart-agent')" class="px-8 py-4 text-white font-semibold rounded-full shadow-lg transition-transform transform hover:scale-105 bg-gradient-to-r from-indigo-500 to-blue-500">
+                        SARA
                     </button>
-                    <button onclick="showSection('knowledge-keeper')" class="px-6 py-3 text-white font-semibold bg-green-500 rounded-full hover:bg-green-600 transition-colors">
-                        ไปที่ Knowledge Keeper
+                    <button onclick="showSection('knowledge-keeper')" class="px-8 py-4 text-white font-semibold rounded-full shadow-lg transition-transform transform hover:scale-105 bg-gradient-to-r from-green-500 to-teal-500">
+                        Knowledge Keeper
                     </button>
                 </div>
             </header>
@@ -299,9 +312,9 @@
                 <h2 class="text-2xl font-bold text-gray-700 mb-4">🤖 ถามคำถาม</h2>
                 <p class="text-gray-600 mb-4">ถามคำถามเกี่ยวกับระบบหรือกระบวนการทำงานเพื่อรับคำตอบจากฐานความรู้</p>
                 <div class="mb-4">
-                    <input type="text" id="search-input" placeholder="เช่น: วิธีอนุมัติงบประมาณคืออะไร?" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="text" id="search-input" placeholder="เช่น: วิธีอนุมัติงบประมาณคืออะไร?" class="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400">
                 </div>
-                <div id="search-results" class="bg-gray-100 p-4 rounded-lg min-h-[200px] overflow-y-auto">
+                <div id="search-results" class="bg-gray-100 p-6 rounded-xl min-h-[200px] overflow-y-auto shadow-inner">
                     <p class="text-gray-500">คำตอบจะแสดงที่นี่</p>
                 </div>
             </div>
@@ -312,15 +325,17 @@
                 <p class="text-gray-600 mb-4">เพิ่มและจัดการองค์ความรู้เพื่อ SARA</p>
 
                 <form id="knowledge-form" class="mb-6">
-                    <input type="text" id="knowledge-title" placeholder="หัวข้อ" class="w-full p-3 border border-gray-300 rounded-lg mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <textarea id="knowledge-content" placeholder="รายละเอียดเนื้อหา" rows="4" class="w-full p-3 border border-gray-300 rounded-lg mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    <button type="submit" class="w-full p-3 text-white font-semibold bg-green-500 rounded-lg hover:bg-green-600 transition-colors">เพิ่มองค์ความรู้</button>
+                    <input type="text" id="knowledge-title" placeholder="หัวข้อ" class="w-full p-4 border border-gray-300 rounded-xl mb-2 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400">
+                    <textarea id="knowledge-content" placeholder="รายละเอียดเนื้อหา" rows="4" class="w-full p-4 border border-gray-300 rounded-xl mb-2 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400"></textarea>
+                    <button type="submit" class="w-full p-4 text-white font-semibold rounded-xl shadow-lg transition-transform transform hover:scale-105 bg-gradient-to-r from-green-500 to-teal-500">
+                        เพิ่มองค์ความรู้
+                    </button>
                 </form>
 
                 <div>
                     <h3 class="text-xl font-bold text-gray-700 mb-2">รายการองค์ความรู้</h3>
-                    <ul id="knowledge-list" class="space-y-2">
-                        <!-- Knowledge articles will be rendered here -->
+                    <ul id="knowledge-list" class="space-y-3">
+                        <p class="text-gray-500 text-center">กำลังโหลด...</p>
                     </ul>
                 </div>
             </div>
@@ -329,9 +344,9 @@
 
     <!-- Custom Message Box -->
     <div id="message-box" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-white p-8 rounded-lg shadow-xl text-center">
-            <p id="message-text" class="text-lg font-medium text-gray-800 mb-4"></p>
-            <button id="message-button" class="px-6 py-2 text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors">ตกลง</button>
+        <div class="bg-white p-8 rounded-xl shadow-xl text-center max-w-sm">
+            <p id="message-text" class="text-lg font-medium text-gray-800 mb-6"></p>
+            <button id="message-button" class="px-6 py-2 text-white font-semibold bg-blue-600 rounded-full hover:bg-blue-700 transition-colors">ตกลง</button>
         </div>
     </div>
 </body>
