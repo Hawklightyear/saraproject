@@ -88,21 +88,21 @@
                 db = getFirestore(app);
                 setLogLevel('debug');
 
-                await new Promise(async (resolve) => {
+                // Refactored authentication to be more robust.
+                // It ensures Firestore operations don't start before auth is complete.
+                try {
                     if (initialAuthToken) {
-                        try {
-                            await signInWithCustomToken(auth, initialAuthToken);
-                        } catch (error) {
-                            console.error("Error signing in with custom token:", error);
-                            await signInAnonymously(auth);
-                        }
+                        await signInWithCustomToken(auth, initialAuthToken);
                     } else {
                         await signInAnonymously(auth);
                     }
                     userId = auth.currentUser.uid;
                     userIdDisplay.innerText = `User ID: ${userId}`;
-                    resolve();
-                });
+                } catch (error) {
+                    console.error("Authentication failed:", error);
+                    showMessage(`Authentication failed: ${error.message}. Please check your Firebase project configuration.`);
+                    return; // Stop execution if auth fails
+                }
 
                 // Check and add 10 sample articles if the knowledge base is empty
                 const knowledgeCollectionRef = collection(db, `/artifacts/${appId}/public/data/knowledge`);
