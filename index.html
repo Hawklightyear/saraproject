@@ -1,206 +1,186 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2821
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
-{\colortbl;\red255\green255\blue255;\red109\green109\blue109;\red236\green241\blue247;\red251\green0\blue7;
-\red0\green0\blue0;\red42\green42\blue42;\red107\green0\blue1;\red0\green0\blue255;\red24\green112\blue43;
-\red9\green60\blue148;\red19\green118\blue70;}
-{\*\expandedcolortbl;;\cssrgb\c50196\c50196\c50196;\cssrgb\c94118\c95686\c97647;\cssrgb\c100000\c0\c0;
-\cssrgb\c0\c0\c0;\cssrgb\c21961\c21961\c21961;\cssrgb\c50196\c0\c0;\cssrgb\c0\c0\c100000;\cssrgb\c9412\c50196\c21961;
-\cssrgb\c1569\c31765\c64706;\cssrgb\c3529\c52549\c34510;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\deftab720
-\pard\pardeftab720\partightenfactor0
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARA: Smart Agent เพื่อคำตอบที่เชื่อถือได้</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #f0f4f8;
+            color: #1e293b;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 2rem;
+        }
+        .infographic-card {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem;
+            border: 1px solid #e2e8f0;
+        }
+        .title {
+            color: #1e40af;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            color: #4b5563;
+            font-size: 1.25rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 1rem;
+            border-left: 4px solid #3b82f6;
+            padding-left: 0.75rem;
+        }
+        .item-card {
+            background-color: #f8fafc;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s;
+        }
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .item-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+        .item-card p {
+            font-size: 1rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+        .icon {
+            font-size: 2rem;
+            color: #3b82f6;
+            margin-bottom: 1rem;
+        }
+        .highlight {
+            background-color: #d1fae5;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+        }
+        .saving-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #15803d;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="p-8">
 
-\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 <!DOCTYPE\cf4 \strokec4  html\cf2 \strokec2 >\cf0 \cb1 \strokec5 \
-\pard\pardeftab720\partightenfactor0
-\cf6 \cb3 \strokec6 <\cf7 \strokec7 html\cf0 \strokec5  \cf4 \strokec4 lang\cf6 \strokec6 =\cf8 \strokec8 "th"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cf6 \cb3 \strokec6 <\cf7 \strokec7 head\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\pard\pardeftab720\partightenfactor0
-\cf0 \cb3     \cf6 \strokec6 <\cf7 \strokec7 meta\cf0 \strokec5  \cf4 \strokec4 charset\cf6 \strokec6 =\cf8 \strokec8 "UTF-8"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3     \cf6 \strokec6 <\cf7 \strokec7 meta\cf0 \strokec5  \cf4 \strokec4 name\cf6 \strokec6 =\cf8 \strokec8 "viewport"\cf0 \strokec5  \cf4 \strokec4 content\cf6 \strokec6 =\cf8 \strokec8 "width=device-width, initial-scale=1.0"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3     \cf6 \strokec6 <\cf7 \strokec7 title\cf6 \strokec6 >\cf0 \strokec5 SARA: Smart Agent \uc0\u3648 \u3614 \u3639 \u3656 \u3629 \u3588 \u3635 \u3605 \u3629 \u3610 \u3607 \u3637 \u3656 \u3648 \u3594 \u3639 \u3656 \u3629 \u3606 \u3639 \u3629 \u3652 \u3604 \u3657 \cf6 \strokec6 </\cf7 \strokec7 title\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3     \cf6 \strokec6 <\cf7 \strokec7 script\cf0 \strokec5  \cf4 \strokec4 src\cf6 \strokec6 =\cf8 \strokec8 "https://cdn.tailwindcss.com"\cf6 \strokec6 ></\cf7 \strokec7 script\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3     \cf6 \strokec6 <\cf7 \strokec7 link\cf0 \strokec5  \cf4 \strokec4 rel\cf6 \strokec6 =\cf8 \strokec8 "preconnect"\cf0 \strokec5  \cf4 \strokec4 href\cf6 \strokec6 =\cf8 \strokec8 "https://fonts.googleapis.com"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3     \cf6 \strokec6 <\cf7 \strokec7 link\cf0 \strokec5  \cf4 \strokec4 rel\cf6 \strokec6 =\cf8 \strokec8 "preconnect"\cf0 \strokec5  \cf4 \strokec4 href\cf6 \strokec6 =\cf8 \strokec8 "https://fonts.gstatic.com"\cf0 \strokec5  \cf4 \strokec4 crossorigin\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3     \cf6 \strokec6 <\cf7 \strokec7 link\cf0 \strokec5  \cf4 \strokec4 href\cf6 \strokec6 =\cf8 \strokec8 "https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap"\cf0 \strokec5  \cf4 \strokec4 rel\cf6 \strokec6 =\cf8 \strokec8 "stylesheet"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3     \cf6 \strokec6 <\cf7 \strokec7 style\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3         \cf7 \strokec7 body\cf0 \strokec5  \{\cb1 \
-\cb3             \cf4 \strokec4 font-family:\cf0 \strokec5  \cf9 \strokec9 'Kanit'\cf0 \strokec5 , \cf10 \strokec10 sans-serif\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 background-color:\cf0 \strokec5  \cf10 \strokec10 #f0f4f8\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 color:\cf0 \strokec5  \cf10 \strokec10 #1e293b\cf0 \strokec5 ;\cb1 \
-\cb3         \}\cb1 \
-\cb3         \cf7 \strokec7 .container\cf0 \strokec5  \{\cb1 \
-\cb3             \cf4 \strokec4 max-width:\cf0 \strokec5  \cf11 \strokec11 900px\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 margin:\cf0 \strokec5  \cf10 \strokec10 auto\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 padding:\cf0 \strokec5  \cf11 \strokec11 2rem\cf0 \strokec5 ;\cb1 \
-\cb3         \}\cb1 \
-\cb3         \cf7 \strokec7 .infographic-card\cf0 \strokec5  \{\cb1 \
-\cb3             \cf4 \strokec4 background-color:\cf0 \strokec5  \cf10 \strokec10 #ffffff\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 border-radius:\cf0 \strokec5  \cf11 \strokec11 1rem\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 box-shadow:\cf0 \strokec5  \cf11 \strokec11 0\cf0 \strokec5  \cf11 \strokec11 10px\cf0 \strokec5  \cf11 \strokec11 15px\cf0 \strokec5  \cf11 \strokec11 -3px\cf0 \strokec5  \cf10 \strokec10 rgba(\cf11 \strokec11 0\cf0 \strokec5 , \cf11 \strokec11 0\cf0 \strokec5 , \cf11 \strokec11 0\cf0 \strokec5 , \cf11 \strokec11 0.1\cf10 \strokec10 )\cf0 \strokec5 , \cf11 \strokec11 0\cf0 \strokec5  \cf11 \strokec11 4px\cf0 \strokec5  \cf11 \strokec11 6px\cf0 \strokec5  \cf11 \strokec11 -2px\cf0 \strokec5  \cf10 \strokec10 rgba(\cf11 \strokec11 0\cf0 \strokec5 , \cf11 \strokec11 0\cf0 \strokec5 , \cf11 \strokec11 0\cf0 \strokec5 , \cf11 \strokec11 0.05\cf10 \strokec10 )\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 padding:\cf0 \strokec5  \cf11 \strokec11 2.5rem\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 border:\cf0 \strokec5  \cf11 \strokec11 1px\cf0 \strokec5  \cf10 \strokec10 solid\cf0 \strokec5  \cf10 \strokec10 #e2e8f0\cf0 \strokec5 ;\cb1 \
-\cb3         \}\cb1 \
-\cb3         \cf7 \strokec7 .title\cf0 \strokec5  \{\cb1 \
-\cb3             \cf4 \strokec4 color:\cf0 \strokec5  \cf10 \strokec10 #1e40af\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 font-size:\cf0 \strokec5  \cf11 \strokec11 2.5rem\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 font-weight:\cf0 \strokec5  \cf11 \strokec11 700\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 text-align:\cf0 \strokec5  \cf10 \strokec10 center\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 margin-bottom:\cf0 \strokec5  \cf11 \strokec11 0.5rem\cf0 \strokec5 ;\cb1 \
-\cb3         \}\cb1 \
-\cb3         \cf7 \strokec7 .subtitle\cf0 \strokec5  \{\cb1 \
-\cb3             \cf4 \strokec4 color:\cf0 \strokec5  \cf10 \strokec10 #4b5563\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 font-size:\cf0 \strokec5  \cf11 \strokec11 1.25rem\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 text-align:\cf0 \strokec5  \cf10 \strokec10 center\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 margin-bottom:\cf0 \strokec5  \cf11 \strokec11 3rem\cf0 \strokec5 ;\cb1 \
-\cb3         \}\cb1 \
-\cb3         \cf7 \strokec7 .section-title\cf0 \strokec5  \{\cb1 \
-\cb3             \cf4 \strokec4 font-size:\cf0 \strokec5  \cf11 \strokec11 1.5rem\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 font-weight:\cf0 \strokec5  \cf11 \strokec11 700\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 color:\cf0 \strokec5  \cf10 \strokec10 #334155\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 margin-bottom:\cf0 \strokec5  \cf11 \strokec11 1rem\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 border-left:\cf0 \strokec5  \cf11 \strokec11 4px\cf0 \strokec5  \cf10 \strokec10 solid\cf0 \strokec5  \cf10 \strokec10 #3b82f6\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 padding-left:\cf0 \strokec5  \cf11 \strokec11 0.75rem\cf0 \strokec5 ;\cb1 \
-\cb3         \}\cb1 \
-\cb3         \cf7 \strokec7 .item-card\cf0 \strokec5  \{\cb1 \
-\cb3             \cf4 \strokec4 background-color:\cf0 \strokec5  \cf10 \strokec10 #f8fafc\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 border-radius:\cf0 \strokec5  \cf11 \strokec11 0.75rem\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 padding:\cf0 \strokec5  \cf11 \strokec11 1.5rem\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 margin-bottom:\cf0 \strokec5  \cf11 \strokec11 1.5rem\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 border:\cf0 \strokec5  \cf11 \strokec11 1px\cf0 \strokec5  \cf10 \strokec10 solid\cf0 \strokec5  \cf10 \strokec10 #e2e8f0\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 transition:\cf0 \strokec5  \cf10 \strokec10 transform\cf0 \strokec5  \cf11 \strokec11 0.2s\cf0 \strokec5 ;\cb1 \
-\cb3         \}\cb1 \
-\cb3         \cf7 \strokec7 .item-card:hover\cf0 \strokec5  \{\cb1 \
-\cb3             \cf4 \strokec4 transform:\cf0 \strokec5  \cf10 \strokec10 translateY(\cf11 \strokec11 -5px\cf10 \strokec10 )\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 box-shadow:\cf0 \strokec5  \cf11 \strokec11 0\cf0 \strokec5  \cf11 \strokec11 4px\cf0 \strokec5  \cf11 \strokec11 6px\cf0 \strokec5  \cf11 \strokec11 -1px\cf0 \strokec5  \cf10 \strokec10 rgba(\cf11 \strokec11 0\cf0 \strokec5 , \cf11 \strokec11 0\cf0 \strokec5 , \cf11 \strokec11 0\cf0 \strokec5 , \cf11 \strokec11 0.1\cf10 \strokec10 )\cf0 \strokec5 , \cf11 \strokec11 0\cf0 \strokec5  \cf11 \strokec11 2px\cf0 \strokec5  \cf11 \strokec11 4px\cf0 \strokec5  \cf11 \strokec11 -1px\cf0 \strokec5  \cf10 \strokec10 rgba(\cf11 \strokec11 0\cf0 \strokec5 , \cf11 \strokec11 0\cf0 \strokec5 , \cf11 \strokec11 0\cf0 \strokec5 , \cf11 \strokec11 0.06\cf10 \strokec10 )\cf0 \strokec5 ;\cb1 \
-\cb3         \}\cb1 \
-\cb3         \cf7 \strokec7 .item-card\cf0 \strokec5  \cf7 \strokec7 h3\cf0 \strokec5  \{\cb1 \
-\cb3             \cf4 \strokec4 font-size:\cf0 \strokec5  \cf11 \strokec11 1.125rem\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 font-weight:\cf0 \strokec5  \cf11 \strokec11 600\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 color:\cf0 \strokec5  \cf10 \strokec10 #1e293b\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 margin-bottom:\cf0 \strokec5  \cf11 \strokec11 0.5rem\cf0 \strokec5 ;\cb1 \
-\cb3         \}\cb1 \
-\cb3         \cf7 \strokec7 .item-card\cf0 \strokec5  \cf7 \strokec7 p\cf0 \strokec5  \{\cb1 \
-\cb3             \cf4 \strokec4 font-size:\cf0 \strokec5  \cf11 \strokec11 1rem\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 color:\cf0 \strokec5  \cf10 \strokec10 #475569\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 line-height:\cf0 \strokec5  \cf11 \strokec11 1.6\cf0 \strokec5 ;\cb1 \
-\cb3         \}\cb1 \
-\cb3         \cf7 \strokec7 .icon\cf0 \strokec5  \{\cb1 \
-\cb3             \cf4 \strokec4 font-size:\cf0 \strokec5  \cf11 \strokec11 2rem\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 color:\cf0 \strokec5  \cf10 \strokec10 #3b82f6\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 margin-bottom:\cf0 \strokec5  \cf11 \strokec11 1rem\cf0 \strokec5 ;\cb1 \
-\cb3         \}\cb1 \
-\cb3         \cf7 \strokec7 .highlight\cf0 \strokec5  \{\cb1 \
-\cb3             \cf4 \strokec4 background-color:\cf0 \strokec5  \cf10 \strokec10 #d1fae5\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 padding:\cf0 \strokec5  \cf11 \strokec11 2rem\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 border-radius:\cf0 \strokec5  \cf11 \strokec11 1rem\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 text-align:\cf0 \strokec5  \cf10 \strokec10 center\cf0 \strokec5 ;\cb1 \
-\cb3         \}\cb1 \
-\cb3         \cf7 \strokec7 .saving-number\cf0 \strokec5  \{\cb1 \
-\cb3             \cf4 \strokec4 font-size:\cf0 \strokec5  \cf11 \strokec11 3rem\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 font-weight:\cf0 \strokec5  \cf11 \strokec11 700\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 color:\cf0 \strokec5  \cf10 \strokec10 #15803d\cf0 \strokec5 ;\cb1 \
-\cb3             \cf4 \strokec4 margin-bottom:\cf0 \strokec5  \cf11 \strokec11 0.5rem\cf0 \strokec5 ;\cb1 \
-\cb3         \}\cb1 \
-\cb3     \cf6 \strokec6 </\cf7 \strokec7 style\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\pard\pardeftab720\partightenfactor0
-\cf6 \cb3 \strokec6 </\cf7 \strokec7 head\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cf6 \cb3 \strokec6 <\cf7 \strokec7 body\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "p-8"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\
-\cf6 \cb3 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "container"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\pard\pardeftab720\partightenfactor0
-\cf0 \cb3     \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "infographic-card"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3         \cf6 \strokec6 <\cf7 \strokec7 h1\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "title"\cf6 \strokec6 >\cf0 \strokec5 SARA: Smart Agent \uc0\u3648 \u3614 \u3639 \u3656 \u3629 \u3588 \u3635 \u3605 \u3629 \u3610 \u3607 \u3637 \u3656 \u3648 \u3594 \u3639 \u3656 \u3629 \u3606 \u3639 \u3629 \u3652 \u3604 \u3657 \cf6 \strokec6 </\cf7 \strokec7 h1\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3         \cf6 \strokec6 <\cf7 \strokec7 p\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "subtitle"\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3611 \u3599 \u3636 \u3623 \u3633 \u3605 \u3636 \u3585 \u3619 \u3632 \u3610 \u3623 \u3609 \u3585 \u3634 \u3619 \u3607 \u3635 \u3591 \u3634 \u3609  \u3621 \u3604 \u3648 \u3623 \u3621 \u3634 \u3649 \u3621 \u3632 \u3605 \u3657 \u3609 \u3607 \u3640 \u3609 \u3604 \u3657 \u3623 \u3618 \u3619 \u3632 \u3610 \u3610 \u3592 \u3633 \u3604 \u3585 \u3634 \u3619 \u3629 \u3591 \u3588 \u3660 \u3588 \u3623 \u3634 \u3617 \u3619 \u3641 \u3657 \u3616 \u3634 \u3618 \u3651 \u3609 \cf6 \strokec6 </\cf7 \strokec7 p\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\
-\cb3         \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "mb-8"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3             \cf6 \strokec6 <\cf7 \strokec7 h2\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "section-title"\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3611 \u3633 \u3597 \u3627 \u3634 \u3607 \u3637 \u3656 \u3614 \u3610 \u3651 \u3609  Work Process\cf6 \strokec6 </\cf7 \strokec7 h2\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3             \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "grid md:grid-cols-2 gap-6"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                 \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "item-card"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "icon"\cf6 \strokec6 >\cf0 \strokec5 \uc0\u55358 \u56596 \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 h3\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3585 \u3619 \u3632 \u3610 \u3623 \u3609 \u3585 \u3634 \u3619 \u3648 \u3604 \u3636 \u3617 \u3607 \u3637 \u3656 \u3652 \u3617 \u3656 \u3617 \u3637 \u3611 \u3619 \u3632 \u3626 \u3636 \u3607 \u3608 \u3636 \u3616 \u3634 \u3614 \cf6 \strokec6 </\cf7 \strokec7 h3\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 p\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3614 \u3609 \u3633 \u3585 \u3591 \u3634 \u3609 \u3605 \u3657 \u3629 \u3591 \u3626 \u3629 \u3610 \u3606 \u3634 \u3617 \u3648 \u3614 \u3639 \u3656 \u3629 \u3609 \u3619 \u3656 \u3623 \u3617 \u3591 \u3634 \u3609 \u3649 \u3621 \u3632 \u3612 \u3641 \u3657 \u3648 \u3594 \u3637 \u3656 \u3618 \u3623 \u3594 \u3634 \u3597 \u3627 \u3621 \u3634 \u3618 \u3588 \u3609  \u3607 \u3635 \u3651 \u3627 \u3657 \u3605 \u3657 \u3629 \u3591 \u3606 \u3634 \u3617 \u3595 \u3657 \u3635 \u3649 \u3621 \u3632 \u3619 \u3629 \u3588 \u3635 \u3605 \u3629 \u3610 \u3609 \u3634 \u3609 \cf6 \strokec6 </\cf7 \strokec7 p\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                 \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                 \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "item-card"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "icon"\cf6 \strokec6 >\cf0 \strokec5 \uc0\u9203 \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 h3\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3588 \u3623 \u3634 \u3617 \u3626 \u3641 \u3597 \u3648 \u3611 \u3621 \u3656 \u3634 \u3607 \u3637 \u3656 \u3648 \u3585 \u3636 \u3604 \u3586 \u3638 \u3657 \u3609 \cf6 \strokec6 </\cf7 \strokec7 h3\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 ul\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "list-disc ml-5 text-gray-700"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                         \cf6 \strokec6 <\cf7 \strokec7 li\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3619 \u3629 \u3588 \u3635 \u3605 \u3629 \u3610 \u3592 \u3634 \u3585 \u3612 \u3641 \u3657 \u3619 \u3641 \u3657 \cf6 \strokec6 </\cf7 \strokec7 li\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                         \cf6 \strokec6 <\cf7 \strokec7 li\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3606 \u3634 \u3617 \u3627 \u3621 \u3634 \u3618 \u3588 \u3609 \u3649 \u3621 \u3632 \u3623 \u3609 \u3652 \u3611 \u3648 \u3619 \u3639 \u3656 \u3629 \u3618 \u3654 \cf6 \strokec6 </\cf7 \strokec7 li\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                         \cf6 \strokec6 <\cf7 \strokec7 li\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3588 \u3609 \u3617 \u3637 \u3588 \u3623 \u3634 \u3617 \u3619 \u3641 \u3657 \u3652 \u3617 \u3656 \u3606 \u3641 \u3585 \u3651 \u3594 \u3657 \u3611 \u3619 \u3632 \u3650 \u3618 \u3594 \u3609 \u3660 \u3648 \u3605 \u3655 \u3617 \u3607 \u3637 \u3656 \cf6 \strokec6 </\cf7 \strokec7 li\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                         \cf6 \strokec6 <\cf7 \strokec7 li\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3606 \u3634 \u3617 \u3595 \u3657 \u3635  \u3605 \u3629 \u3610 \u3595 \u3657 \u3635  \u3623 \u3609 \u3652 \u3611 \u3648 \u3619 \u3639 \u3656 \u3629 \u3618 \u3654 \cf6 \strokec6 </\cf7 \strokec7 li\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 </\cf7 \strokec7 ul\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                 \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3             \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3         \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\
-\cb3         \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "mb-8"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3             \cf6 \strokec6 <\cf7 \strokec7 h2\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "section-title"\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3649 \u3609 \u3623 \u3607 \u3634 \u3591 \u3649 \u3585 \u3657 \u3652 \u3586 \u3604 \u3657 \u3623 \u3618  SARA\cf6 \strokec6 </\cf7 \strokec7 h2\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3             \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "grid md:grid-cols-3 gap-6"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                 \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "item-card text-center"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "icon mx-auto"\cf6 \strokec6 >\cf0 \strokec5 \uc0\u55358 \u56598 \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 h3\cf6 \strokec6 >\cf0 \strokec5 Smart Agent\cf6 \strokec6 </\cf7 \strokec7 h3\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 p\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3619 \u3632 \u3610 \u3610  AI \u3607 \u3637 \u3656 \u3605 \u3629 \u3610 \u3588 \u3635 \u3606 \u3634 \u3617 \u3592 \u3634 \u3585 \u3600 \u3634 \u3609 \u3586 \u3657 \u3629 \u3617 \u3641 \u3621 \u3588 \u3623 \u3634 \u3617 \u3619 \u3641 \u3657 \u3607 \u3633 \u3609 \u3607 \u3637 \cf6 \strokec6 </\cf7 \strokec7 p\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                 \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                 \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "item-card text-center"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "icon mx-auto"\cf6 \strokec6 >\cf0 \strokec5 \uc0\u9997 \u65039 \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 h3\cf6 \strokec6 >\cf0 \strokec5 Knowledge Keeper\cf6 \strokec6 </\cf7 \strokec7 h3\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 p\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3607 \u3637 \u3617 \u3607 \u3637 \u3656 \u3607 \u3635 \u3627 \u3609 \u3657 \u3634 \u3607 \u3637 \u3656 \u3610 \u3633 \u3609 \u3607 \u3638 \u3585 \u3649 \u3621 \u3632 \u3592 \u3633 \u3604 \u3585 \u3634 \u3619 \u3629 \u3591 \u3588 \u3660 \u3588 \u3623 \u3634 \u3617 \u3619 \u3641 \u3657 \cf6 \strokec6 </\cf7 \strokec7 p\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                 \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                 \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "item-card text-center"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "icon mx-auto"\cf6 \strokec6 >\cf0 \strokec5 \uc0\u9989 \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 h3\cf6 \strokec6 >\cf0 \strokec5 Knowledge Champion\cf6 \strokec6 </\cf7 \strokec7 h3\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 p\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3612 \u3641 \u3657 \u3605 \u3619 \u3623 \u3592 \u3626 \u3629 \u3610 \u3588 \u3623 \u3634 \u3617 \u3606 \u3641 \u3585 \u3605 \u3657 \u3629 \u3591 \u3649 \u3621 \u3632 \u3592 \u3633 \u3604 \u3619 \u3632 \u3648 \u3610 \u3637 \u3618 \u3610 \u3586 \u3657 \u3629 \u3617 \u3641 \u3621 \cf6 \strokec6 </\cf7 \strokec7 p\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                 \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3             \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3         \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3         \cb1 \
-\cb3         \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "mb-8"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3             \cf6 \strokec6 <\cf7 \strokec7 h2\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "section-title"\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3585 \u3634 \u3619 \u3611 \u3619 \u3632 \u3627 \u3618 \u3633 \u3604 \u3648 \u3623 \u3621 \u3634 \u3649 \u3621 \u3632 \u3605 \u3657 \u3609 \u3607 \u3640 \u3609 \cf6 \strokec6 </\cf7 \strokec7 h2\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3             \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "grid md:grid-cols-2 gap-6"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                 \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "highlight"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 p\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "text-xl font-semibold text-gray-800"\cf6 \strokec6 >\cf0 \strokec5 Lean Time Saving\cf6 \strokec6 </\cf7 \strokec7 p\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 p\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "text-gray-600 mb-2"\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3648 \u3623 \u3621 \u3634 \u3607 \u3637 \u3656 \u3611 \u3619 \u3632 \u3627 \u3618 \u3633 \u3604 \u3652 \u3604 \u3657 \u3605 \u3656 \u3629 \u3648 \u3604 \u3639 \u3629 \u3609 \cf6 \strokec6 </\cf7 \strokec7 p\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 p\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "saving-number"\cf6 \strokec6 >\cf0 \strokec5 230 \uc0\u3594 \u3633 \u3656 \u3623 \u3650 \u3617 \u3591 \cf6 \strokec6 </\cf7 \strokec7 p\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 p\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "text-sm text-gray-500"\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3592 \u3634 \u3585 \u3585 \u3634 \u3619 \u3621 \u3604 \u3648 \u3623 \u3621 \u3634 \u3592 \u3634 \u3585  2 \u3594 \u3617 ./\u3588 \u3635 \u3606 \u3634 \u3617  \u3648 \u3627 \u3621 \u3639 \u3629 \u3648 \u3614 \u3637 \u3618 \u3591  5 \u3609 \u3634 \u3607 \u3637 /\u3588 \u3635 \u3606 \u3634 \u3617 \cf6 \strokec6 </\cf7 \strokec7 p\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                 \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                 \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "highlight"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 p\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "text-xl font-semibold text-gray-800"\cf6 \strokec6 >\cf0 \strokec5 Cost Saving\cf6 \strokec6 </\cf7 \strokec7 p\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 p\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "text-gray-600 mb-2"\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3605 \u3657 \u3609 \u3607 \u3640 \u3609 \u3607 \u3637 \u3656 \u3611 \u3619 \u3632 \u3627 \u3618 \u3633 \u3604 \u3652 \u3604 \u3657 \u3605 \u3656 \u3629 \u3648 \u3604 \u3639 \u3629 \u3609 \cf6 \strokec6 </\cf7 \strokec7 p\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 p\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "saving-number"\cf6 \strokec6 >\cf0 \strokec5 57,500 \uc0\u3610 \u3634 \u3607 \cf6 \strokec6 </\cf7 \strokec7 p\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 p\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "text-sm text-gray-500"\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3592 \u3634 \u3585 \u3588 \u3656 \u3634 \u3592 \u3657 \u3634 \u3591 \u3612 \u3641 \u3657 \u3648 \u3594 \u3637 \u3656 \u3618 \u3623 \u3594 \u3634 \u3597 \u3607 \u3637 \u3656 \u3621 \u3604 \u3621 \u3591 \cf6 \strokec6 </\cf7 \strokec7 p\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                 \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3             \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3         \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\
-\cb3         \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "mb-8"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3             \cf6 \strokec6 <\cf7 \strokec7 h2\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "section-title"\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3586 \u3657 \u3629 \u3617 \u3641 \u3621 \u3626 \u3635 \u3588 \u3633 \u3597 \u3629 \u3639 \u3656 \u3609 \u3654 \cf6 \strokec6 </\cf7 \strokec7 h2\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3             \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "grid md:grid-cols-2 gap-6"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                 \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "item-card"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "icon"\cf6 \strokec6 >\cf0 \strokec5 \uc0\u10024 \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 h3\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3611 \u3633 \u3592 \u3592 \u3633 \u3618 \u3588 \u3623 \u3634 \u3617 \u3626 \u3635 \u3648 \u3619 \u3655 \u3592 \cf6 \strokec6 </\cf7 \strokec7 h3\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 ul\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "list-disc ml-5 text-gray-700"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                         \cf6 \strokec6 <\cf7 \strokec7 li\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3648 \u3607 \u3588 \u3650 \u3609 \u3650 \u3621 \u3618 \u3637 \u3605 \u3657 \u3629 \u3591 \u3651 \u3594 \u3657 \u3591 \u3634 \u3609 \u3591 \u3656 \u3634 \u3618 \u3649 \u3621 \u3632 \u3617 \u3637 \u3611 \u3619 \u3632 \u3626 \u3636 \u3607 \u3608 \u3636 \u3616 \u3634 \u3614 \cf6 \strokec6 </\cf7 \strokec7 li\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                         \cf6 \strokec6 <\cf7 \strokec7 li\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3612 \u3641 \u3657 \u3619 \u3641 \u3657 \u3605 \u3657 \u3629 \u3591 \u3619 \u3656 \u3623 \u3617 \u3617 \u3639 \u3629 \u3651 \u3609 \u3585 \u3634 \u3619 \u3648 \u3614 \u3636 \u3656 \u3617 \u3629 \u3591 \u3588 \u3660 \u3588 \u3623 \u3634 \u3617 \u3619 \u3641 \u3657 \cf6 \strokec6 </\cf7 \strokec7 li\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 </\cf7 \strokec7 ul\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                 \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                 \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "item-card"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 div\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "icon"\cf6 \strokec6 >\cf0 \strokec5 \uc0\u10071 \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 h3\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3588 \u3623 \u3634 \u3617 \u3648 \u3626 \u3637 \u3656 \u3618 \u3591 \u3607 \u3637 \u3656 \u3605 \u3657 \u3629 \u3591 \u3619 \u3632 \u3623 \u3633 \u3591 \cf6 \strokec6 </\cf7 \strokec7 h3\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 <\cf7 \strokec7 ul\cf0 \strokec5  \cf4 \strokec4 class\cf6 \strokec6 =\cf8 \strokec8 "list-disc ml-5 text-gray-700"\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                         \cf6 \strokec6 <\cf7 \strokec7 li\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3612 \u3641 \u3657 \u3619 \u3641 \u3657 \u3652 \u3617 \u3656 \u3617 \u3637 \u3648 \u3623 \u3621 \u3634 \u3617 \u3634 \u3648 \u3614 \u3636 \u3656 \u3617 \u3586 \u3657 \u3629 \u3617 \u3641 \u3621 \cf6 \strokec6 </\cf7 \strokec7 li\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                         \cf6 \strokec6 <\cf7 \strokec7 li\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3586 \u3634 \u3604 \u3612 \u3641 \u3657 \u3605 \u3619 \u3623 \u3592 \u3626 \u3629 \u3610 \u3588 \u3623 \u3634 \u3617 \u3606 \u3641 \u3585 \u3605 \u3657 \u3629 \u3591 \cf6 \strokec6 </\cf7 \strokec7 li\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                         \cf6 \strokec6 <\cf7 \strokec7 li\cf6 \strokec6 >\cf0 \strokec5 \uc0\u3588 \u3635 \u3605 \u3629 \u3610 \u3592 \u3634 \u3585 \u3619 \u3632 \u3610 \u3610 \u3629 \u3634 \u3592 \u3618 \u3633 \u3591 \u3652 \u3617 \u3656 \u3604 \u3637 \u3607 \u3637 \u3656 \u3626 \u3640 \u3604 \cf6 \strokec6 </\cf7 \strokec7 li\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                     \cf6 \strokec6 </\cf7 \strokec7 ul\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3                 \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3             \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cb3         \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\
-\cb3     \cf6 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\pard\pardeftab720\partightenfactor0
-\cf6 \cb3 \strokec6 </\cf7 \strokec7 div\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\
-\cf6 \cb3 \strokec6 </\cf7 \strokec7 body\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\cf6 \cb3 \strokec6 </\cf7 \strokec7 html\cf6 \strokec6 >\cf0 \cb1 \strokec5 \
-\
-}
+<div class="container">
+    <div class="infographic-card">
+        <h1 class="title">SARA: Smart Agent เพื่อคำตอบที่เชื่อถือได้</h1>
+        <p class="subtitle">ปฏิวัติกระบวนการทำงาน ลดเวลาและต้นทุนด้วยระบบจัดการองค์ความรู้ภายใน</p>
+
+        <div class="mb-8">
+            <h2 class="section-title">ปัญหาที่พบใน Work Process</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="item-card">
+                    <div class="icon">🤔</div>
+                    <h3>กระบวนการเดิมที่ไม่มีประสิทธิภาพ</h3>
+                    <p>พนักงานต้องสอบถามเพื่อนร่วมงานและผู้เชี่ยวชาญหลายคน ทำให้ต้องถามซ้ำและรอคำตอบนาน</p>
+                </div>
+                <div class="item-card">
+                    <div class="icon">⏳</div>
+                    <h3>ความสูญเปล่าที่เกิดขึ้น</h3>
+                    <ul class="list-disc ml-5 text-gray-700">
+                        <li>รอคำตอบจากผู้รู้</li>
+                        <li>ถามหลายคนและวนไปเรื่อยๆ</li>
+                        <li>คนมีความรู้ไม่ถูกใช้ประโยชน์เต็มที่</li>
+                        <li>ถามซ้ำ ตอบซ้ำ วนไปเรื่อยๆ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="section-title">แนวทางแก้ไขด้วย SARA</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="item-card text-center">
+                    <div class="icon mx-auto">🤖</div>
+                    <h3>Smart Agent</h3>
+                    <p>ระบบ AI ที่ตอบคำถามจากฐานข้อมูลความรู้ทันที</p>
+                </div>
+                <div class="item-card text-center">
+                    <div class="icon mx-auto">✍️</div>
+                    <h3>Knowledge Keeper</h3>
+                    <p>ทีมที่ทำหน้าที่บันทึกและจัดการองค์ความรู้</p>
+                </div>
+                <div class="item-card text-center">
+                    <div class="icon mx-auto">✅</div>
+                    <h3>Knowledge Champion</h3>
+                    <p>ผู้ตรวจสอบความถูกต้องและจัดระเบียบข้อมูล</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mb-8">
+            <h2 class="section-title">การประหยัดเวลาและต้นทุน</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="highlight">
+                    <p class="text-xl font-semibold text-gray-800">Lean Time Saving</p>
+                    <p class="text-gray-600 mb-2">เวลาที่ประหยัดได้ต่อเดือน</p>
+                    <p class="saving-number">230 ชั่วโมง</p>
+                    <p class="text-sm text-gray-500">จากการลดเวลาจาก 2 ชม./คำถาม เหลือเพียง 5 นาที/คำถาม</p>
+                </div>
+                <div class="highlight">
+                    <p class="text-xl font-semibold text-gray-800">Cost Saving</p>
+                    <p class="text-gray-600 mb-2">ต้นทุนที่ประหยัดได้ต่อเดือน</p>
+                    <p class="saving-number">57,500 บาท</p>
+                    <p class="text-sm text-gray-500">จากค่าจ้างผู้เชี่ยวชาญที่ลดลง</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="section-title">ข้อมูลสำคัญอื่นๆ</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="item-card">
+                    <div class="icon">✨</div>
+                    <h3>ปัจจัยความสำเร็จ</h3>
+                    <ul class="list-disc ml-5 text-gray-700">
+                        <li>เทคโนโลยีต้องใช้งานง่ายและมีประสิทธิภาพ</li>
+                        <li>ผู้รู้ต้องร่วมมือในการเพิ่มองค์ความรู้</li>
+                    </ul>
+                </div>
+                <div class="item-card">
+                    <div class="icon">❗</div>
+                    <h3>ความเสี่ยงที่ต้องระวัง</h3>
+                    <ul class="list-disc ml-5 text-gray-700">
+                        <li>ผู้รู้ไม่มีเวลามาเพิ่มข้อมูล</li>
+                        <li>ขาดผู้ตรวจสอบความถูกต้อง</li>
+                        <li>คำตอบจากระบบอาจยังไม่ดีที่สุด</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
